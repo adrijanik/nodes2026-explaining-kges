@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explaining Link Predictions in Knowledge Graph Embedding Models</title>
+<meta name="description" content="Session materials: slides, notebook, code and experiments for a talk on explaining link predictions in knowledge graph embedding models.">
+<style>
+:root{--bg:#fbfbf9;--fg:#1d2430;--muted:#5b6574;--line:#dcdfe4;--accent:#0b6bcb;--card:#ffffff}
+@media (prefers-color-scheme:dark){:root{--bg:#14171c;--fg:#e7eaee;--muted:#9aa4b2;--line:#2a2f38;--accent:#6cb0ff;--card:#1b1f26}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:48px 20px 64px}
+h1{font-size:2rem;line-height:1.2;margin:0 0 12px}
+h2{font-size:1.1rem;margin:40px 0 12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+a{color:var(--accent)}
+.meta{display:grid;grid-template-columns:max-content 1fr;gap:4px 20px;margin:20px 0 0;color:var(--muted)}
+.meta dt{font-weight:600;color:var(--fg)}
+.meta dd{margin:0}
+.links{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.links li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.links a{font-weight:600;text-decoration:none}
+.links a:hover{text-decoration:underline}
+.links span{display:block;color:var(--muted);font-size:.92rem}
+p{margin:0 0 14px}
+ul.plain{padding-left:20px;margin:0}
+ul.plain li{margin:4px 0}
+footer{margin-top:48px;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+<h1>Explaining Link Predictions in Knowledge Graph Embedding Models</h1>
+<p>Adrianna Janik, Nearform</p>
+
+<dl class="meta">
+<dt>Event</dt><dd>NODES 2026 (<a href="https://neo4j.com/nodes/agenda/#session-428994">session page</a>)</dd>
+<dt>Track</dt><dd>AI Engineering</dd>
+<dt>When</dt><dd><time datetime="2026-11-12T16:00:00Z">12 November 2026, 4:00 pm</time> to <time datetime="2026-11-12T16:30:00Z">4:30 pm</time> GMT+0</dd>
+</dl>
+
+<h2>Abstract</h2>
+<p>Knowledge Graph Embedding (KGE) models such as TransE, ComplEx, and DistMult are widely used for link prediction on knowledge graphs, but they lack direct interpretability; a growing concern as regulatory frameworks like the EU AI Act increase explainability requirements for AI systems.</p>
+<p>In this talk, we show how to explain KGE link predictions in practice. We walk through concrete examples: given a prediction such as gene PRKN is associated with Parkinson's Disease, how do we identify which training triples in the knowledge graph were most responsible for that score? We demonstrate this using real datasets (FB15k-237, WN18RR) and biomedical knowledge graphs from applications in gene-disease association and patient relapse risk prediction.</p>
+<p>We survey post-hoc explainability methods, including Gradient Rollback, Adversarial Explanations, ExamplE, and Kelpie, focusing on their practical tradeoffs: speed, memory, and whether the explanations actually make sense to an end user. We show code using AmpliGraph and discuss how to evaluate explanations using Remove-and-Retrain protocols.</p>
+
+<h2>Materials</h2>
+<ul class="links">
+<li><a href="slides.pdf">Slides</a><span>The deck from the session.</span></li>
+<li><a href="Explaining_link_predictions_methods_tour.ipynb">Notebook</a><span>ExamplE, Kelpie and GNNExplainer, with links to Gradient Rollback.</span></li>
+<li><a href="https://github.com/Accenture/AmpliGraph/tree/paper/ISWC2026-XAI-KG-ExamplE">AmpliGraph branch</a><span>Code for ExamplE on Python 3.12: <code>paper/ISWC2026-XAI-KG-ExamplE</code>.</span></li>
+<li><a href="https://github.com/Accenture/AmpliGraph/blob/paper/ISWC2026-XAI-KG-ExamplE/notebooks/AmpliGraph-Tutorials/Explanations%201%20-%20Example-based%20Explanations.ipynb">Explanation tutorial</a><span>Example-based explanations notebook in the AmpliGraph branch.</span></li>
+<li><a href="https://zenodo.org/records/21610995">Experiments archive</a><span>Archived experiments for the paper (Zenodo).</span></li>
+<li><a href="https://ceur-ws.org/Vol-4318/paper1.pdf">Paper</a><span>ExamplE: explaining knowledge graph embedding predictions with influential examples.</span></li>
+</ul>
+
+<h2>Methods mentioned</h2>
+<ul class="plain">
+<li>Gradient Rollback: <a href="https://arxiv.org/abs/2010.05516">paper</a>, <a href="https://github.com/carolinlawrence/gradient-rollback">code</a></li>
+<li>Adversarial Explanations: <a href="https://ijcai.org/proceedings/2022/391">paper</a></li>
+<li>Kelpie: <a href="https://www.vldb.org/pvldb/vol15/p3566-rossi.pdf">paper</a>, <a href="https://github.com/AndRossi/Kelpie">code</a></li>
+<li>KGEx: <a href="https://proceedings.mlr.press/v231/baltatzis24a.html">paper</a></li>
+<li>GNNExplainer: <a href="https://arxiv.org/abs/1903.03894">paper</a>, <a href="https://pytorch-geometric.readthedocs.io/en/latest/modules/explain.html">PyTorch Geometric</a></li>
+</ul>
+
+<footer>Contact: <a href="https://adrijanik.com">adrijanik.com</a></footer>
+</main>
+</body>
+</html>
